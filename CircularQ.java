@@ -55,8 +55,8 @@ public class CircularQ {
         else{
             if(front == -1){
                 arry[0] = value;
-                front++;
-                rear = (rear+1)%SIZE;
+                front = 0;
+                rear = 0;
             }
             else{
                 rear = (rear+1)%SIZE;
@@ -89,17 +89,12 @@ public class CircularQ {
         else{
             System.out.println("Front : "+front);
             System.out.println("Rear : "+rear);
-            if(front != 0){ 
-                int temp = rear;
-                temp = SIZE-1;
-                for(i = 0 ; i<=temp; i++)
-                      System.out.printf("Index["+i+"] --> "+arry[i]+"\n");
+            
+               for (i = front; i != rear; i = (i + 1) % SIZE)
+                  System.out.print(arry[i] + " ");
+                System.out.println(arry[i]);
+                System.out.println("Rear -> " + rear);
             }
-            else
-              for(i = front ; i<=rear; i++)
-                     System.out.printf("Index["+i+"] --> "+arry[i]+"\n");
-            
-            
-        }
+           
     }
 }
